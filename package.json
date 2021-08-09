@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "dev": "nodemon --exec babel-node ./src/app.js"
+    "dev": "nodemon --exec babel-node ./src/app.js",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel src --out-dir build",
+    "build": "npm run clean && npm run build-babel",
+    "build-project": "npm run build",
+    "start": "npm run build-project && node ./build/app.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
