@@ -27,7 +27,7 @@ if (config.use_env_variable) {
     console.log(
       `Successfully connected to database ${config.database} at ${config.username}@${config.host}`
     );
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === "development") {
       //sync models
       //Note: only uncomment when needed! Pass 'true' as argument to run a fresh sync
       syncModels(true);
