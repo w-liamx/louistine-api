@@ -48,16 +48,16 @@ const syncModels = async (fresh = false) => {
       await sequelize.sync({ force: true });
       console.log("All models were synchronized successfully.");
       //navigate to root and seed tables
-      const root = path.join(__dirname, "../../");
-      exec(
-        "npx sequelize-cli db:seed:all",
-        { cwd: root },
-        (error, stdout, stderr) => {
-          //do xyz...
-          if (error) throw error;
-          console.log("Seeds run successfully!");
-        }
-      );
+      // const root = path.join(__dirname, "../../");
+      // exec(
+      //   "npx sequelize-cli db:seed:all",
+      //   { cwd: root },
+      //   (error, stdout, stderr) => {
+      //     //do xyz...
+      //     if (error) throw error;
+      //     console.log("Seeds run successfully!");
+      //   }
+      // );
     } else {
       await sequelize.sync({ alter: true });
       console.log("All models were synchronized successfully.");
