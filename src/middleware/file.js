@@ -7,6 +7,7 @@ import fs from "fs";
 import jimp from "jimp";
 import _ from "lodash";
 
+import "../config/global";
 import { responseObject, sluggify } from "../helpers/utils";
 import { HTTP_BAD_REQUEST } from "../helpers/httpCodes.js";
 
@@ -326,8 +327,11 @@ const getUploadPath = (uploadFolder = "", cb = null) => {
   });
   return uploadPath;
 };
+console.log(global.config);
 
 export const resolveMultiFieldFileUrl = (uploadFolder, savedFiles) => {
+  console.log(global.config);
+
   if (_.isEmpty(savedFiles)) {
     return savedFiles;
   }

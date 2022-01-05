@@ -7,7 +7,7 @@
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel src --out-dir build",
     "build": "npm run clean && npm run build-babel",
-    "build-project": "npm run build",
+    "build-project": "npm run build && cp -r ./.env ./build/",
     "start": "npm run build-project && node ./build/app.js"
   },
   "dependencies": {
