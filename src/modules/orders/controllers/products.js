@@ -64,7 +64,6 @@ export const addProduct = async (req, res) => {
     "price",
     "description",
     "size",
-    "colour",
   ]);
 
   //append uploaded images (from resizePhotos() middleware) to data

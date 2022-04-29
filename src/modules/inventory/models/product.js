@@ -15,9 +15,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // Product.belongsTo(models.ProductCategory, {
-      //   as: "category",
-      //   foreignKey: "categoryId",
+      // Product.belongsTo(models.Collection, {
+      //   as: "collection",
+      //   foreignKey: "collectionId",
       //   onDelete: "SET NULL",
       //   onUpdate: "CASCADE",
       // });
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Product.init(
     {
-      categoryId: {
+      collectionId: {
         allowNull: true,
         type: DataTypes.INTEGER(11),
         validate: {
@@ -66,41 +66,22 @@ module.exports = (sequelize, DataTypes) => {
       size: {
         allowNull: false,
         type: DataTypes.INTEGER(5),
-      },
-      colour: {
-        allowNull: false,
-        type: DataTypes.INTEGER(5),
-      },
+      }
     },
     {
       sequelize,
       modelName: "Product",
       paranoid: true, //allow soft delete
       timestamps: true,
-      //   indexes: [
-      //     //INDEX (used for WHERE queries, in addition to FKs)
-      //     { fields: ["slug"] },
-      //     { fields: ["startDate"] },
-      //     { fields: ["endDate"] },
-      //     { fields: ["isActive"] },
-      //     { fields: ["deletedAt"] },
-      //     //FULLTEXT (for searches)
-      //     {
-      //       type: "FULLTEXT",
-      //       name: "ftSearchFields",
-      //       fields: ["slug", "title", "venue", "details"],
-      //     },
-      //   ],
     }
   );
 
   Product.validatePostData = async function (req, excludeId) {
     const schema = Joi.object({
-      categoryId: Joi.number(),
+      collectionId: Joi.number().required(),
       productName: Joi.string().required().max(255),
       price: Joi.number().required(),
       size: Joi.number().required(),
-      colour: Joi.number().required(),
       description: Joi.string().required(),
     });
 

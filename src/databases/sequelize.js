@@ -30,7 +30,7 @@ if (config.use_env_variable) {
     if (process.env.NODE_ENV === "development") {
       //sync models
       //Note: only uncomment when needed! Pass 'true' as argument to run a fresh sync
-      // syncModels(true);
+      syncModels(false);
     }
   } catch (error) {
     console.error("Could not establish database connection:", error);

@@ -29,7 +29,7 @@ export const viewProduct = async (req, res) => {
   //   {
   //     model: Template,
   //     as: "template",
-  //     attributes: ["id", "categoryId", "key", "title"],
+  //     attributes: ["id", "collectionId", "key", "title"],
   //   },
   //   {
   //     model: TemplateCategory,
@@ -59,7 +59,7 @@ export const addProduct = async (req, res) => {
   // }
 
   const data = _.pick(req.body, [
-    "categoryId",
+    "collectionId",
     "productName",
     "price",
     "description",
@@ -82,7 +82,7 @@ export const updateProduct = async (req, res) => {
   const { id } = req.params;
 
   let data = _.pick(req.body, [
-    "categoryId",
+    "collectionId",
     "productName",
     "price",
     "description",

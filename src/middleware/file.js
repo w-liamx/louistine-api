@@ -327,7 +327,6 @@ const getUploadPath = (uploadFolder = "", cb = null) => {
   });
   return uploadPath;
 };
-console.log(global.config);
 
 export const resolveMultiFieldFileUrl = (uploadFolder, savedFiles) => {
   console.log(global.config);
